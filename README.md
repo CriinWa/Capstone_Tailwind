@@ -7,7 +7,7 @@
 - **Nguyễn Văn Sang**
 
 ## 🎯 Mục tiêu
-Xây dựng website SaaS theo mẫu: https://astroship-pro.web3templates.com/
+Xây dựng website theo mẫu: https://astroship-pro.web3templates.com/
 Sử dụng HTML + Tailwind CSS
 
 ---
