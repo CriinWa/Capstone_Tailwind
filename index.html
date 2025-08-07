@@ -6,156 +6,345 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!-- my css -->
     <link rel="stylesheet" href="./css/custom.css">
-    <title>Tailwind</title>
     <link rel="stylesheet" href="./index.css">
+    <!-- Navigation JavaScript -->
+    <script src="./js/navigation.js" defer></script>
+    <title>Astroship Pro - Tailwind</title>
 </head>
 
-<body>
+<body class="bg-white text-gray-900">
+    <!-- Header/Navigation - TASK 1 -->
+    <header id="header"
+        class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 transition-all duration-300">
+        <div class="py-4" id="header-padding">
+            <div class="max-w-7xl mx-auto px-4 lg:px-6">
+                <div class="flex items-center justify-between h-9" id="header-content">
 
-    <body class="bg-white text-gray-900">
-        <!-- Header/Navigation - TASK 1 -->
-        <header id="header">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center space-x-2 text-lg ">
+                            <div class="flex items-center">
+                                <span class="font-bold text-indigo-600">Astro</span>
+                                <span class="text-slate-600">ship</span>
+                            </div>
+                            <span
+                                class="bg-gray-200 mt-1 text-slate-700 font-bold px-2 py-1 rounded-full uppercase tracking-wide leading-none text-[10px]">
+                                PRO
+                            </span>
+                        </a>
+                    </div>
 
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden lg:flex items-center space-x-8 text-sm">
+                        <!-- Pages Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="flex items-center text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                                Pages
+                                <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                                <div class="py-2">
+                                    <a href="/features"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition-colors">Features</a>
+                                    <a href="/integrations"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition-colors">Integrations</a>
+                                    <a href="/blog-details"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition-colors">Blog
+                                        Details</a>
+                                    <a href="/404"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition-colors">404
+                                        Page</a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <a href="/pricing" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                            Pricing
+                        </a>
 
-        </header>
+                        <a href="/about" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                            About
+                        </a>
 
-        <!-- Hero Section - TASK 1 -->
-        <section id="hero" class="min-h-screen">
+                        <a href="/blog" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                            Blog
+                        </a>
 
+                        <a href="/contact" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">
+                            Contact
+                        </a>
+                    </nav>
 
-        </section>
+                    <!-- Desktop CTA Buttons -->
+                    <div class="hidden lg:flex items-center space-x-4 text-sm">
+                        <a href="/login" class="text-gray-900  transition-colors duration-200">
+                            Log in
+                        </a>
+                        <a href="/signup"
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full transition-all duration-200 inline-flex items-center text-center group">
+                            <span>Try for Free</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-4 h-4 mt-px group-hover:translate-x-1 transition-transform">
+                                <path fill-rule="evenodd"
+                                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
 
-        <!-- Trusted Brands - TASK 2 -->
-        <section id="brands" class="py-16">
-
-
-        </section>
-
-        <!-- Workflows Section - TASK 2 -->
-        <section id="workflows" class="py-16">
-            <div class="simplified_workflows">
-
+                    <!-- Mobile menu button -->
+                    <div class="lg:hidden">
+                        <button id="mobile-menu-toggle" type="button"
+                            class="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition-colors duration-200">
+                            <span class="sr-only">Open main menu</span>
+                            <!-- Hamburger icon -->
+                            <svg id="menu-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <!-- Close icon -->
+                            <svg id="close-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="ai_insights">
+        </div>
 
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white">
+            <div class="px-4 py-6">
+                <!-- Mobile Navigation - Vertical Stack -->
+                <div class="flex flex-col space-y-6">
+
+                    <!-- Pages Section -->
+                    <div>
+                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Pages</div>
+                        <div class="flex flex-col space-y-2">
+                            <a href="/features"
+                                class="block px-3 py-2 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors ">Features</a>
+                            <a href="/integrations"
+                                class="block px-3 py-2 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors ">Integrations</a>
+                            <a href="/blog-details"
+                                class="block px-3 py-2 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors ">Blog
+                                Details</a>
+                            <a href="/404"
+                                class="block px-3 py-2 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors ">404
+                                Page</a>
+                        </div>
+                    </div>
+
+                    <!-- Other Menu Items -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="/pricing"
+                            class="block px-3 py-3 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md  transition-colors text-base">Pricing</a>
+                        <a href="/about"
+                            class="block px-3 py-3 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md  transition-colors text-base">About</a>
+                        <a href="/blog"
+                            class="block px-3 py-3 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md  transition-colors text-base">Blog</a>
+                        <a href="/contact"
+                            class="block px-3 py-3 text-gray-500 hover:text-indigo-600 hover:bg-gray-50 rounded-md  transition-colors text-base">Contact</a>
+                    </div>
+
+                    <!-- CTA Buttons - Horizontal Flex -->
+                    <div class="pt-6 border-t border-gray-100">
+                        <div class="flex flex-row space-x-4">
+                            <a href="/login"
+                                class="flex-1 text-center px-4 py-3 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 rounded-full font-medium transition-colors border border-gray-200">Log
+                                in</a>
+                            <a href="/signup"
+                                class="flex-1 text-center bg-indigo-600 hover:bg-indigo-800 text-white font-medium px-4 py-3 rounded-full transition-all duration-200 inline-flex items-center justify-center space-x-2 group">
+                                <span>Try for Free</span>
+                                <!-- <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Testimonials - TASK 3 -->
-        <section id="testimonials" class="py-16">
+    </header>
+
+    <!-- Hero Section - TASK 1 -->
+    <section id="hero" class="overflow-x-clip">
+        <!--overflow-x-clip: để phần tràn ẩn đi, ko hiện cuộn ngang -->
+        <div class="max-w-screen-xl mx-auto ">
+            <main class="grid lg:grid-cols-5 place-items-center relative">
+                <!-- place-items-center: ăn giữa nội dung trong cells theo cả ngang(justifu-items) và dọc (align-items) -->
+                <div class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-200 right-0 top-0"></div>
+                <div class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-200 right-56 top-10"></div>
+                <div class="max-w-sm md:max-w-max lg:col-span-2">
+                    <h1
+                        class="text-3xl lg:text-4xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter text-balance text-center lg:text-start ">
+                        Create websites with Astroship™</h1>
+                    <p class="text-lg mt-4 max-w-lg text-slate-600 [text-wrap:balance] text-center lg:text-start">Pro
+                        version of popular Astroship starter template made for startups. Built with Astro and Tailwind
+                        CSS.</p>
+                    <div class="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3">
+                        <a href="#"
+                            class="rounded-full text-center transition bg-indigo-600 hover:bg-indigo-800 text-white px-7 py-2.5 flex gap-1 items-center justify-center">Buy
+                            Template - $49</a>
+                        <a href="#"
+                            class="rounded-full text-center transition bg-white hover:bg-indigo-50 text-indigo-500 px-7 py-2.5 flex gap-1 items-center justify-center border-2 border-indigo-500">Free
+                            Version</a>
+                    </div>
+                </div>
+                <div class="py-3 lg:col-span-3 lg:-mr-44">
+                    <img src="https://astroship-pro.web3templates.com/_astro/hero-screenshot.dpXn-2za_Z252oyA.avif"
+                        alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
+                        fetchpriority="high" decoding="async" srcset="">
+                </div>
+            </main>
 
 
-        </section>
-
-        <!-- Features Grid - TASK 4 -->
-        <section id="features" class="py-16">
-
-
-        </section>
-
-        <!-- Technical Features - TASK 5 -->
-        <section id="tech_features" class="py-16">
+        </div>
+    </section>
+    <!-- Trusted Brands - TASK 2 -->
+    <section id="brands" class="py-16">
 
 
-        </section>
-        <div class="container__bug">
-            <span
-                class="bg-purple-100 border-purple-250 border text-purple-650 rounded-full text-xs font-medium px-3 py-1">
-                MORE FEATURES </span>
-            <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-4 text-center">
-                We've got you covered
-            </h2>
-            <p class="text-lg mt-4 text-slate-600 text-center [text-wrap:pretty]">
-                Our template covers all things SAAS. If you don't find what you're looking
-                for, contact us and we'll either help you or steer you in the right
-                direction.
+    </section>
+
+    <!-- Workflows Section - TASK 2 -->
+    <section id="workflows" class="py-16">
+        <div class="simplified_workflows">
+
+        </div>
+        <div class="ai_insights">
+
+        </div>
+    </section>
+
+    <!-- Testimonials - TASK 3 -->
+    <section id="testimonials" class="py-16">
+
+
+    </section>
+
+    <!-- Features Grid - TASK 4 -->
+    <section id="features" class="py-16">
+
+
+    </section>
+
+    <!-- Technical Features - TASK 5 -->
+    <section id="tech_features" class="py-16">
+
+
+    </section>
+    <div class="container__bug">
+        <span class="bg-purple-100 border-purple-250 border text-purple-650 rounded-full text-xs font-medium px-3 py-1">
+            MORE FEATURES </span>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-4 text-center">
+            We've got you covered
+        </h2>
+        <p class="text-lg mt-4 text-slate-600 text-center [text-wrap:pretty]">
+            Our template covers all things SAAS. If you don't find what you're looking
+            for, contact us and we'll either help you or steer you in the right
+            direction.
+        </p>
+    </div>
+    <!-- item -->
+    <div class="item__blog">
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
+                <br>
+                removing all JavaScript from your final build by default.
             </p>
         </div>
-        <!-- item -->
-        <div class="item__blog">
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-
-            <div class="blog__item">
-                <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
-                    <br>
-                    removing all JavaScript from your final build by default.
-                </p>
-            </div>
-
-
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
+                <br>
+                removing all JavaScript from your final build by default.
+            </p>
         </div>
 
-        <!-- CTA Section - TASK 6 -->
-        <section id="call_to_action" class="py-10">
-            <div class="call__content">
-                <h2 class="text-center text-5xl font-bold ">Apps Websites</h2>
-                <p>Pull content from anywhere and serve it fast with Astro's next-gen island
-                    architecture.
-                </p>
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
                 <br>
-                <div class="text-center">
-                    <a href="#"
-                        class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white text-indigo-800 border-2 border-transparent ">Sign
-                        up for </a>
-                </div>
+                removing all JavaScript from your final build by default.
+            </p>
+        </div>
+
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
+                <br>
+                removing all JavaScript from your final build by default.
+            </p>
+        </div>
+
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
+                <br>
+                removing all JavaScript from your final build by default.
+            </p>
+        </div>
+
+        <div class="blog__item">
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed Grid">Astro renders your entire page to static HTML,
+                <br>
+                removing all JavaScript from your final build by default.
+            </p>
+        </div>
+
+
+    </div>
+
+    <!-- CTA Section - TASK 6 -->
+    <section id="call_to_action" class="py-10">
+        <div class="call__content">
+            <h2 class="text-center text-5xl font-bold ">Apps Websites</h2>
+            <p>Pull content from anywhere and serve it fast with Astro's next-gen island
+                architecture.
+            </p>
+            <br>
+            <div class="text-center">
+                <a href="#"
+                    class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white text-indigo-800 border-2 border-transparent ">Sign
+                    up for </a>
             </div>
+        </div>
 
 
-        </section>
+    </section>
 
-        <!-- footer -->
-        <foote class="py-50 bg-">
-            <div class="footer__blog">
-                <div class="item__footer">
-                    <h3>Astro ship</h3>
-                    <p class="mt-4 text-sm text-slate-700 max-w-xs">
-                        Astroship Pro is a premium astro website template made for saas &amp;
-                        startups. Built with Astro and Tailwind CSS.
-                    </p> 
-                </div>
-                <div class="footer__item1">
-                     <div class="footer__item">
+    <!-- footer -->
+    <foote class="py-50 bg-">
+        <div class="footer__blog">
+            <div class="item__footer">
+                <h3>Astro ship</h3>
+                <p class="mt-4 text-sm text-slate-700 max-w-xs">
+                    Astroship Pro is a premium astro website template made for saas &amp;
+                    startups. Built with Astro and Tailwind CSS.
+                </p>
+            </div>
+            <div class="footer__item1">
+                <div class="footer__item">
                     <h3>Company</h3>
                     <a href="#" class="py-2 text-sm text-slate-600 hover:text-indigo-600"> About </a> <br>
                     <a href="#" class="py-2 text-sm text-slate-600 hover:text-indigo-600"> Careers </a> <br>
@@ -176,27 +365,27 @@
                     <a href="#" class="py-2 text-sm text-slate-600 hover:text-indigo-600"> Blog </a> <br>
                     <a href="#" class="py-2 text-sm text-slate-600 hover:text-indigo-600"> Contact </a> <br>
                 </div>
-                
-                
-              
-                </div>
 
-               
+
+
             </div>
-        </foote>
-        <!-- Footer TASK 6 -->
-         <br>
-         <br>
-        <div>
-            <div class="max-w-screen-xl mx-auto px-5">
-                <p class="text-center text-sm text-slate-600 [text-wrap:balance]">
-                    Copyright © 2025 Astroship. All rights reserved.
-                </p>
-                <p class="text-center text-xs text-slate-600 mt-2"> <a href="/terms" class="hover:text-indigo-500">
-                        Terms</a> ・ <a href="/privacy" class="hover:text-indigo-500">
-                        Privacy</a> </p>
-            </div>
+
+
         </div>
-    </body>
+    </foote>
+    <!-- Footer TASK 6 -->
+    <br>
+    <br>
+    <div>
+        <div class="max-w-screen-xl mx-auto px-5">
+            <p class="text-center text-sm text-slate-600 [text-wrap:balance]">
+                Copyright © 2025 Astroship. All rights reserved.
+            </p>
+            <p class="text-center text-xs text-slate-600 mt-2"> <a href="/terms" class="hover:text-indigo-500">
+                    Terms</a> ・ <a href="/privacy" class="hover:text-indigo-500">
+                    Privacy</a> </p>
+        </div>
+    </div>
+</body>
 
 </html>
