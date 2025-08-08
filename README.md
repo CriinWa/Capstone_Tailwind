@@ -2,9 +2,9 @@
 **BC-Capstone_Tailwind**
 
 ## 👥 Nhóm 3
-- **Huỳnh Khôi Nguyên** 
-- **Võ Mai Anh Thy**
-- **Nguyễn Văn Sang**
+- **CriinWa: Huỳnh Khôi Nguyên** 
+- **Sonorathy: Võ Mai Anh Thy**
+- **chusangno: Nguyễn Văn Sang**
 
 ## 🎯 Mục tiêu
 Xây dựng website theo mẫu: https://astroship-pro.web3templates.com/
