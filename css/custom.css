@@ -209,6 +209,24 @@ button:focus {
 /* ---------------------------- END HERO SECTION ---------------------------- */
 
 
+/* ---------------------------- START MARQUEE ANIMATION ---------------------------- */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (min-width: 768px) {
+    @media (prefers-reduced-motion: no-preference) {
+        .md\:motion-safe\:animate-marquee {
+            animation: marquee 50s linear infinite;
+        }
+    }
+}
+
+/* ---------------------------- END MARQUEE ANIMATION ---------------------------- */
+
+
 
 
 
